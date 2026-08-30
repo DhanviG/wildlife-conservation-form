@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Wildlife Conservation Volunteer Registration</title>
+
+    <script>
+        // Name Validation
+        function validateName() {
+            var name = document.getElementById("name").value;
+            var error = document.getElementById("nameError");
+            var pattern = /^[A-Za-z ]+$/;
+
+            if (name !== "" && !pattern.test(name)) {
+                error.innerHTML = "Only letters and spaces are allowed";
+            } else {
+                error.innerHTML = "";
+            }
+        }
+
+        // Email Validation
+        function validateEmail() {
+            var email = document.getElementById("email").value;
+            var error = document.getElementById("emailError");
+            var pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (email !== "" && !pattern.test(email)) {
+                error.innerHTML = "Invalid email address";
+            } else {
+                error.innerHTML = "";
+            }
+        }
+
+        // Password Validation
+        function validatePassword() {
+            var password = document.getElementById("password").value;
+            var error = document.getElementById("passwordError");
+
+            if (password !== "" && password.length < 6) {
+                error.innerHTML = "Password must contain at least 6 characters";
+            } else {
+                error.innerHTML = "";
+            }
+        }
+
+        // Age Validation
+        function validateAge() {
+            var age = document.getElementById("age").value;
+            var error = document.getElementById("ageError");
+
+            if (age !== "" && (Number(age) < 18 || Number(age) > 70)) {
+                error.innerHTML = "Age must be between 18 and 70";
+            } else {
+                error.innerHTML = "";
+            }
+        }
+    </script>
+
+</head>
+
+<body bgcolor="#F5F7F5">
+
+<center>
+
+    <br>
+
+    <h1>
+        <font face="Arial" color="#173F5F" size="6">
+            Wildlife Conservation Volunteer Registration
+        </font>
+    </h1>
+
+    <p>
+        <font face="Arial" color="#52796F" size="4">
+            Join us in protecting wildlife and preserving our natural environment.
+        </font>
+    </p>
+
+    <hr color="#52796F" size="1" width="75%">
+
+    <br>
+
+    <form>
+
+        <table cellpadding="12" cellspacing="0"
+               border="1"
+               bordercolor="#D0D8D3"
+               width="70%"
+               bgcolor="#FFFFFF">
+
+            <tr bgcolor="#173F5F">
+                <th colspan="2">
+                    <font face="Arial" color="white" size="4">
+                        Volunteer Information
+                    </font>
+                </th>
+            </tr>
+
+            <!-- Name -->
+            <tr>
+                <td width="35%">
+                    <b>Full Name:</b>
+                </td>
+
+                <td>
+                    <input type="text"
+                           id="name"
+                           placeholder="Enter your full name"
+                           size="40"
+                           oninput="validateName()">
+
+                    <br>
+                    <span id="nameError" style="color:red;"></span>
+                </td>
+            </tr>
+
+            <!-- Email -->
+            <tr bgcolor="#F7F9F7">
+                <td>
+                    <b>Email Address:</b>
+                </td>
+
+                <td>
+                    <input type="text"
+                           id="email"
+                           placeholder="Enter your email"
+                           size="40"
+                           oninput="validateEmail()">
+
+                    <br>
+                    <span id="emailError" style="color:red;"></span>
+                </td>
+            </tr>
+
+            <!-- Password -->
+            <tr>
+                <td>
+                    <b>Create Password:</b>
+                </td>
+
+                <td>
+                    <input type="password"
+                           id="password"
+                           placeholder="Minimum 6 characters"
+                           size="40"
+                           oninput="validatePassword()">
+
+                    <br>
+                    <span id="passwordError" style="color:red;"></span>
+                </td>
+            </tr>
+
+            <!-- Age -->
+            <tr bgcolor="#F7F9F7">
+                <td>
+                    <b>Age:</b>
+                </td>
+
+                <td>
+                    <input type="number"
+                           id="age"
+                           placeholder="18 - 70"
+                           oninput="validateAge()">
+
+                    <br>
+                    <span id="ageError" style="color:red;"></span>
+                </td>
+            </tr>
+
+            <!-- Date -->
+            <tr>
+                <td>
+                    <b>Preferred Joining Date:</b>
+                </td>
+
+                <td>
+                    <input type="date" name="date">
+                </td>
+            </tr>
+
+            <!-- Gender -->
+            <tr bgcolor="#F7F9F7">
+                <td>
+                    <b>Gender:</b>
+                </td>
+
+                <td>
+                    <input type="radio" name="gender" value="Male">
+                    Male
+
+                    &nbsp;&nbsp;
+
+                    <input type="radio" name="gender" value="Female">
+                    Female
+
+                    &nbsp;&nbsp;
+
+                    <input type="radio" name="gender" value="Other">
+                    Other
+                </td>
+            </tr>
+
+            <!-- Interest -->
+            <tr>
+                <td>
+                    <b>Areas of Interest:</b>
+                </td>
+
+                <td>
+                    <input type="checkbox"
+                           name="interest"
+                           value="Wildlife Protection">
+                    Wildlife Protection
+
+                    <br>
+
+                    <input type="checkbox"
+                           name="interest"
+                           value="Forest Conservation">
+                    Forest Conservation
+
+                    <br>
+
+                    <input type="checkbox"
+                           name="interest"
+                           value="Bird Watching">
+                    Bird Watching
+                </td>
+            </tr>
+
+            <!-- Program -->
+            <tr bgcolor="#F7F9F7">
+                <td>
+                    <b>Volunteer Program:</b>
+                </td>
+
+                <td>
+                    <select name="program">
+                        <option value="">-- Select Program --</option>
+                        <option value="Tree Plantation">Tree Plantation</option>
+                        <option value="Wildlife Rescue">Wildlife Rescue</option>
+                        <option value="Nature Awareness">Nature Awareness</option>
+                        <option value="Forest Conservation">Forest Conservation</option>
+                    </select>
+                </td>
+            </tr>
+
+            <!-- National Park -->
+            <tr>
+                <td>
+                    <b>Preferred National Park:</b>
+                </td>
+
+                <td>
+                    <input list="parks"
+                           name="park"
+                           size="35"
+                           placeholder="Select a national park">
+
+                    <datalist id="parks">
+                        <option value="Kaziranga National Park">
+                        <option value="Jim Corbett National Park">
+                        <option value="Periyar Wildlife Sanctuary">
+                        <option value="Bandipur National Park">
+                        <option value="Sundarbans National Park">
+                    </datalist>
+                </td>
+            </tr>
+
+            <!-- Awareness -->
+            <tr bgcolor="#F7F9F7">
+                <td>
+                    <b>Nature Awareness Level:</b>
+                </td>
+
+                <td>
+                    <input type="range"
+                           name="awareness"
+                           min="1"
+                           max="10"
+                           value="5">
+
+                    &nbsp; 1 - 10
+                </td>
+            </tr>
+
+            <!-- Color -->
+            <tr>
+                <td>
+                    <b>Favorite Nature Color:</b>
+                </td>
+
+                <td>
+                    <input type="color"
+                           name="color"
+                           value="#52796F">
+                </td>
+            </tr>
+
+            <!-- Buttons -->
+            <tr bgcolor="#EEF3F0">
+                <td colspan="2" align="center">
+
+                    <br>
+
+                    <input type="submit"
+                           value="Join Conservation">
+
+                    &nbsp;&nbsp;
+
+                    <input type="reset"
+                           value="Reset">
+
+                    <br><br>
+
+                </td>
+            </tr>
+
+        </table>
+
+    </form>
+
+    <br>
+
+    <hr color="#52796F" size="1" width="75%">
+
+    <p>
+        <font face="Arial" color="#173F5F" size="4">
+            <b>Every Contribution Matters</b>
+        </font>
+    </p>
+
+    <p>
+        <font face="Arial" color="#666666">
+            Together, we can protect wildlife and create a sustainable future.
+        </font>
+    </p>
+
+    <br>
+
+</center>
+
+</body>
+
+</html>
